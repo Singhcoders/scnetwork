@@ -1,0 +1,71 @@
+/* 
+    Created on : 5-Jun-2016, 4:14:55 PM
+    Author     : Daljit
+*/
+/*Login Modal*/
+  .m_header,.h4 {
+      background-color: #5BC0DE;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+    div.modal-body > form > div.row > div > button{
+      background-color: #5BC0DE;
+      border-color: #fff;
+  }
+    div.modal-body > form > div.row > div > button:hover{
+      background-color: #fff;
+      border-color: #5BC0DE;
+      color: #5BC0DE;
+      border: solid 1px #5BC0DE;
+    } 
+    div.modal-body > form > div.row > div > a.reg{
+      background-color: #5cb85c;
+      border-color: #fff;
+    }
+    div.modal-body > form > div.row > div > a.reg:hover{
+      background-color: #fff;
+      border-color: #5cb85c;
+      color: #5cb85c;
+      border: solid 1px #5cb85c;
+    } 
+    a:link {
+                text-decoration: none;
+    }
+
+    a:visited {
+            text-decoration: none;
+    }
+
+    a:hover {
+            text-decoration: none;
+    }
+
+    a:active {
+            text-decoration: none;
+    }
+    li.s_info{
+        padding: 10px;
+        cursor: pointer;
+    }
+    li.s_info:hover{
+        background-color: rgba(28, 135, 188, 0.69);;
+        color:white;
+    }
+    /* Register Modal*/
+    #myModal > div > div > div.modal-header > h4 {
+      background-color: white;
+      color:black;
+      text-align: center;
+      font-size: 30px;
+  }
+  #myModal > .modal-dialog{
+      width:45%;
+  }
+  .radio-inline{
+      margin-left: 30px !important;
+  }
+  
