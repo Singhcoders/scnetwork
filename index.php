@@ -1,3 +1,7 @@
+<?php
+$_POST['uname'];
+$_POST['pass'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
