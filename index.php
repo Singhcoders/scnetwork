@@ -5,37 +5,16 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/initscript.js"></script>
   <link rel="stylesheet" href="css/login.css">
 </head>
-<script>
-        $(document).ready(function() {
-                var user = "";
-                var pass = "";
-                var b_val="";
-                $('#login').click(function() {
-                        user = $('#user').val();
-                        pass = $('#pass').val();
-                        b_val= $('#login').val();
-                        $.ajax({
-                                type : "POST",
-                                url : "operation.php",
-                                data : {user : user,pass : pass,b_val :b_val},
-                                success : function(html) {                                    
-                                    console.log(html);
-                                     if(html == 1){
-                                          window.location.assign("home.php")
-//                                        Location.href="home.php";
-                                     }
-                                    else{ 
-                                        $('#error').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Warning!</strong> No Combination found for the UserId and Password entered !.</div>');
-                                    }
-                                }
-                        });
-                });
-        });
-
-</script>
 <body>
+<video  width="100%" class="background" autoplay muted loop>
+  <source src="media/bk.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+Your browser does not support the video tag.
+</video>
+<div class="maincontainer">
 <div class="container">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -44,7 +23,7 @@
           <h4 class="h4"><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-            <!--<form role="form" method="POST" action="" id="log">-->
+            <form role="form" method="POST" action="" id="log">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
               <input type="email" class="form-control" id="user" name="uname" placeholder="Enter email">
@@ -55,13 +34,13 @@
             </div>
                 <div class="row" style="margin-top:7%;">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-success btn-block" value="login" id="login"> Login</button>
+                        <input type="submit" class="btn btn-success btn-block" value="login" id="login">
                     </div>
                     <div class="col-md-6">
                     <a class="btn btn-success btn-block reg" data-toggle="modal" data-target="#myModal"> Register </a>
                     </div>
                 </div>
-          <!--</form>-->
+          </form><!--form-->
         </div>
       </div>
       <div id="error"></div>
@@ -73,8 +52,8 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Register</h4>
         </div>
+        <form method="POST" id ="reg" class="form-horizontal" role="form">
         <div class="modal-body">
-            <form method="POST" id ="myForm" action="" class="form-horizontal" role="form">
                 <div class="form-group">
                     <div class="col-md-6"><input type="text" class="form-control" name="first" placeholder="First name" required></div>
                     <div class="col-md-6"><input type="text" class="form-control" name="last" placeholder="Last name" required></div>
@@ -104,16 +83,17 @@
                     <label class="radio-inline"><input type="radio" name="gen" value="male">Male</label>
                     <label class="radio-inline"><input type="radio" name="gen" value="female">Female</label>
                 </div>
-            </form>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary active" data-dismiss="modal" name="upload"  style="float: right;">Submit</button> 
+            <input type="submit" class="btn btn-primary active" name="reg" id="reg" value="Sign Up" style="float: right;"> 
             <button type="button" class="btn btn-default " data-dismiss="modal" style="float: left;">Close</button>
         </div>
+        </form>
       </div>
     </div>
   </div><!-- Register Modal End -->
           </div>
+</div>
 </div>
 </body>
 </html>
