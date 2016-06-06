@@ -1,18 +1,8 @@
-<?php
-define('HOST_NAME', '127.0.0.1');
-define('USERNAME', 'root');
-define('PASSWORD', '');
-define('DATABASE', 'sc_social');
-try{
-	
-$host = HOST_NAME;
-$user = USERNAME;
-$pass= PASSWORD;
-$db = DATABASE;
-$conn = new PDO("mysql:host=$host;dbname=$db",$user, $pass);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
-    {
-    echo "Connection failed: " . $e->getMessage();
-    }
+<?php	
+$host = "localhost";
+$user = "ds_123";
+$pass= "962030";
+$db = "sc_social";
+mysql_connect($host,$user,$pass)or die("cannot connect");
+mysql_select_db("$db")or die("cannot select DB");
+    ?> 

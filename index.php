@@ -1,7 +1,3 @@
-<?php
-$_POST['uname'];
-$_POST['pass'];
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +7,34 @@ $_POST['pass'];
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/login.css">
 </head>
+<script>
+        $(document).ready(function() {
+                var user = "";
+                var pass = "";
+                var b_val="";
+                $('#login').click(function() {
+                        user = $('#user').val();
+                        pass = $('#pass').val();
+                        b_val= $('#login').val();
+                        $.ajax({
+                                type : "POST",
+                                url : "operation.php",
+                                data : {user : user,pass : pass,b_val :b_val},
+                                success : function(html) {                                    
+                                    console.log(html);
+                                     if(html == 1){
+                                          window.location.assign("home.php")
+//                                        Location.href="home.php";
+                                     }
+                                    else{ 
+                                        $('#error').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Warning!</strong> No Combination found for the UserId and Password entered !.</div>');
+                                    }
+                                }
+                        });
+                });
+        });
+
+</script>
 <body>
 <div class="container">
     <div class="modal-dialog">
@@ -20,26 +44,27 @@ $_POST['pass'];
           <h4 class="h4"><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-            <form role="form" method="POST" action="">
+            <!--<form role="form" method="POST" action="" id="log">-->
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
-              <input type="text" class="form-control" id="usrname" name="uname" placeholder="Enter email">
+              <input type="email" class="form-control" id="user" name="uname" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="password" class="form-control" id="psw" name="pass" placeholder="Enter password">
+              <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter password">
             </div>
                 <div class="row" style="margin-top:7%;">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-success btn-block"> Login</button>
+                        <button type="submit" class="btn btn-success btn-block" value="login" id="login"> Login</button>
                     </div>
                     <div class="col-md-6">
                     <a class="btn btn-success btn-block reg" data-toggle="modal" data-target="#myModal"> Register </a>
                     </div>
                 </div>
-          </form>
+          <!--</form>-->
         </div>
       </div>
+      <div id="error"></div>
        <!-- Regester Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

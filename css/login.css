@@ -12,11 +12,11 @@
   .modal-footer {
       background-color: #f9f9f9;
   }
-    div.modal-body > form > div.row > div > button{
+    div.modal-body > div.row > div > button{ 
       background-color: #5BC0DE;
       border-color: #fff;
   }
-    div.modal-body > form > div.row > div > button:hover{
+    div.modal-body > div.row > div > button:hover{
       background-color: #fff;
       border-color: #5BC0DE;
       color: #5BC0DE;
@@ -62,8 +62,14 @@
       text-align: center;
       font-size: 30px;
   }
+  @media screen and (max-width: 450px) {
+    #myModal > .modal-dialog{
+        width:80%;
+        color: red;
+    }
+  }
   #myModal > .modal-dialog{
-      width:45%;
+      width:45%; 
   }
   .radio-inline{
       margin-left: 30px !important;

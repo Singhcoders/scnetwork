@@ -6,7 +6,7 @@
 <head>
 <title><?php echo $title ?></title>
  <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -35,26 +35,11 @@
 </body>
 </html>
  	<?php
-
  }
- function login(){
-    $error="";
-     $sql="SELECT * FROM login WHERE email1='$user' 
-           AND password='$pass'";
-        $res=mysql_query($sql)or die(mysql_error());
-            if(mysql_num_rows($res) == 1){ 
-                while($row=mysql_fetch_assoc($res)){
-                    $_SESSION['p_id'] =$row['pid'];
-                    $_SESSION['firstname'] = $row['firstname1'];
-                    $_SESSION['lastname'] = $row['lastname1'];
-                }
-                //echo"<script>alert('Login Successfuly!')</script>";
-                redirect("home.php");
-            }else {
-                  $error='<div class="alert alert-danger">
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                  <strong>Warning!</strong> No Combination found for the UserId and Password entered !.
-                </div>';
-            }
-            return $error;
+ #Header Redirect
+function redirect($url){
+    header("Location: ".$url);
+    exit;
 }
+ 
+ ?>
